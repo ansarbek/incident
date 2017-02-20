@@ -1,29 +1,28 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = RiskAssessement -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => RiskAssessement %></h1>
+</div>
 
-<p>
-  <strong>Probability risk:</strong>
-  <%= @risk_assessement.probability_risk %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:probability_risk) %></dt>
+      <dd><pre class="prettyprint"><%= @risk_assessement.probability_risk %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:consequense_risk) %></dt>
+      <dd><pre class="prettyprint"><%= @risk_assessement.consequense_risk %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:risk_level) %></dt>
+      <dd><pre class="prettyprint"><%= @risk_assessement.risk_level %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Consequense risk:</strong>
-  <%= @risk_assessement.consequense_risk %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              risk_assessements_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_risk_assessement_path(@risk_assessement), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              risk_assessement_path(@risk_assessement),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Risk level:</strong>
-  <%= @risk_assessement.risk_level %>
-</p>
-
-<p>
-  <strong>Task:</strong>
-  <%= @risk_assessement.task %>
-</p>
-
-<p>
-  <strong>Safety report:</strong>
-  <%= @risk_assessement.safety_report %>
-</p>
-
-<%= link_to 'Edit', edit_risk_assessement_path(@risk_assessement) %> |
-<%= link_to 'Back', risk_assessements_path %>

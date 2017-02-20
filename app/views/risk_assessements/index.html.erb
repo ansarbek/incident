@@ -1,33 +1,40 @@
-<h1>Listing risk_assessements</h1>
-
-<table>
+<%- model_class = RiskAssessement -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => RiskAssessement %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Probability risk</th>
-      <th>Consequense risk</th>
-      <th>Risk level</th>
-      <th>Task</th>
-      <th>Safety report</th>
-      <th colspan="3"></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:probability_risk) %></th>
+      <th><%= model_class.human_attribute_name(:consequense_risk) %></th>
+      <th><%= model_class.human_attribute_name(:risk_level) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @risk_assessements.each do |risk_assessement| %>
       <tr>
+        <td><%= risk_assessement.id %></td>
         <td><%= risk_assessement.probability_risk %></td>
         <td><%= risk_assessement.consequense_risk %></td>
         <td><%= risk_assessement.risk_level %></td>
-        <td><%= risk_assessement.task %></td>
-        <td><%= risk_assessement.safety_report %></td>
-        <td><%= link_to 'Show', risk_assessement %></td>
-        <td><%= link_to 'Edit', edit_risk_assessement_path(risk_assessement) %></td>
-        <td><%= link_to 'Destroy', risk_assessement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l risk_assessement.created_at, format: :long %></td>
+        <td>
+          <%= link_to risk_assessement_path(risk_assessement), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to risk_assessement_path(risk_assessement), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Risk assessement', new_risk_assessement_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_risk_assessement_path,
+            :class => 'btn btn-primary' %>

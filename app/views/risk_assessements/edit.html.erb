@@ -1,6 +1,5 @@
-<h1>Editing risk_assessement</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @risk_assessement %> |
-<%= link_to 'Back', risk_assessements_path %>
+<%- model_class = RiskAssessement -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => RiskAssessement %></h1>
+</div>
+<%= render :partial => 'form' %>
