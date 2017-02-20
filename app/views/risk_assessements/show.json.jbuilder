@@ -1,0 +1,1 @@
+json.partial! "risk_assessements/risk_assessement", risk_assessement: @risk_assessement

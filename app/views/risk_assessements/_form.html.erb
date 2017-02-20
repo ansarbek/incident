@@ -1,0 +1,15 @@
+<%= simple_form_for(@risk_assessement) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :probability_risk %>
+    <%= f.input :consequense_risk %>
+    <%= f.input :risk_level %>
+    <%= f.association :task %>
+    <%= f.association :safety_report %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
