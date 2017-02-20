@@ -1,30 +1,33 @@
-<h1>Listing safety_reports</h1>
-
-<table>
+<%- model_class = SafetyReport -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => SafetyReport %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Report title</th>
-      <th>Report description</th>
-      <th>Report date</th>
-      <th>Incident location</th>
-      <th>Hazard category</th>
-      <th>Damage category</th>
-      <th>Third party type</th>
-      <th>Third party name</th>
-      <th>Risk probability</th>
-      <th>Risk consequense</th>
-      <th>Risk level</th>
-      <th>Reported by</th>
-      <th>Download report</th>
-      <th>Attachment</th>
-      <th>User</th>
-      <th colspan="3"></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:report_title) %></th>
+      <th><%= model_class.human_attribute_name(:report_description) %></th>
+      <th><%= model_class.human_attribute_name(:report_date) %></th>
+      <th><%= model_class.human_attribute_name(:incident_location) %></th>
+      <th><%= model_class.human_attribute_name(:hazard_category) %></th>
+      <th><%= model_class.human_attribute_name(:damage_category) %></th>
+      <th><%= model_class.human_attribute_name(:third_party_type) %></th>
+      <th><%= model_class.human_attribute_name(:third_party_name) %></th>
+      <th><%= model_class.human_attribute_name(:risk_probability) %></th>
+      <th><%= model_class.human_attribute_name(:risk_consequense) %></th>
+      <th><%= model_class.human_attribute_name(:risk_level) %></th>
+      <th><%= model_class.human_attribute_name(:reported_by) %></th>
+      <th><%= model_class.human_attribute_name(:download_report) %></th>
+      <th><%= model_class.human_attribute_name(:attachment) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @safety_reports.each do |safety_report| %>
       <tr>
+        <td><%= safety_report.id %></td>
         <td><%= safety_report.report_title %></td>
         <td><%= safety_report.report_description %></td>
         <td><%= safety_report.report_date %></td>
@@ -39,15 +42,21 @@
         <td><%= safety_report.reported_by %></td>
         <td><%= safety_report.download_report %></td>
         <td><%= safety_report.attachment %></td>
-        <td><%= safety_report.user %></td>
-        <td><%= link_to 'Show', safety_report %></td>
-        <td><%= link_to 'Edit', edit_safety_report_path(safety_report) %></td>
-        <td><%= link_to 'Destroy', safety_report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l safety_report.created_at, format: :long %></td>
+        <td>
+          <%= link_to safety_report_path(safety_report), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to safety_report_path(safety_report), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Safety report', new_safety_report_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_safety_report_path,
+            :class => 'btn btn-primary' %>
