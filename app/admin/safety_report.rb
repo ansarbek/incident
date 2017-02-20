@@ -1,4 +1,5 @@
 ActiveAdmin.register SafetyReport do
+  permit_params :report_title, :report_description, :report_date, :incident_location, :hazard_category, :damage_category, :third_party_type, :third_party_name, :risk_probability, :risk_consequense, :risk_level, :reported_by, :download_report, :attachment
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
