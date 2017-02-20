@@ -1,0 +1,53 @@
+<h1>Listing safety_reports</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Report title</th>
+      <th>Report description</th>
+      <th>Report date</th>
+      <th>Incident location</th>
+      <th>Hazard category</th>
+      <th>Damage category</th>
+      <th>Third party type</th>
+      <th>Third party name</th>
+      <th>Risk probability</th>
+      <th>Risk consequense</th>
+      <th>Risk level</th>
+      <th>Reported by</th>
+      <th>Download report</th>
+      <th>Attachment</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @safety_reports.each do |safety_report| %>
+      <tr>
+        <td><%= safety_report.report_title %></td>
+        <td><%= safety_report.report_description %></td>
+        <td><%= safety_report.report_date %></td>
+        <td><%= safety_report.incident_location %></td>
+        <td><%= safety_report.hazard_category %></td>
+        <td><%= safety_report.damage_category %></td>
+        <td><%= safety_report.third_party_type %></td>
+        <td><%= safety_report.third_party_name %></td>
+        <td><%= safety_report.risk_probability %></td>
+        <td><%= safety_report.risk_consequense %></td>
+        <td><%= safety_report.risk_level %></td>
+        <td><%= safety_report.reported_by %></td>
+        <td><%= safety_report.download_report %></td>
+        <td><%= safety_report.attachment %></td>
+        <td><%= safety_report.user %></td>
+        <td><%= link_to 'Show', safety_report %></td>
+        <td><%= link_to 'Edit', edit_safety_report_path(safety_report) %></td>
+        <td><%= link_to 'Destroy', safety_report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Safety report', new_safety_report_path %>

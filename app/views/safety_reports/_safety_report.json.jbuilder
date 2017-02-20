@@ -1,0 +1,2 @@
+json.extract! safety_report, :id, :report_title, :report_description, :report_date, :incident_location, :hazard_category, :damage_category, :third_party_type, :third_party_name, :risk_probability, :risk_consequense, :risk_level, :reported_by, :download_report, :attachment, :user_id, :created_at, :updated_at
+json.url safety_report_url(safety_report, format: :json)

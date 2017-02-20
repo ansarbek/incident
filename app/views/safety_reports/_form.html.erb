@@ -1,0 +1,25 @@
+<%= simple_form_for(@safety_report) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :report_title %>
+    <%= f.input :report_description %>
+    <%= f.input :report_date %>
+    <%= f.input :incident_location %>
+    <%= f.input :hazard_category %>
+    <%= f.input :damage_category %>
+    <%= f.input :third_party_type %>
+    <%= f.input :third_party_name %>
+    <%= f.input :risk_probability %>
+    <%= f.input :risk_consequense %>
+    <%= f.input :risk_level %>
+    <%= f.input :reported_by %>
+    <%= f.input :download_report %>
+    <%= f.input :attachment %>
+    <%= f.association :user %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -1,0 +1,1 @@
+json.array! @safety_reports, partial: 'safety_reports/safety_report', as: :safety_report

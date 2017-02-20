@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Report title:</strong>
+  <%= @safety_report.report_title %>
+</p>
+
+<p>
+  <strong>Report description:</strong>
+  <%= @safety_report.report_description %>
+</p>
+
+<p>
+  <strong>Report date:</strong>
+  <%= @safety_report.report_date %>
+</p>
+
+<p>
+  <strong>Incident location:</strong>
+  <%= @safety_report.incident_location %>
+</p>
+
+<p>
+  <strong>Hazard category:</strong>
+  <%= @safety_report.hazard_category %>
+</p>
+
+<p>
+  <strong>Damage category:</strong>
+  <%= @safety_report.damage_category %>
+</p>
+
+<p>
+  <strong>Third party type:</strong>
+  <%= @safety_report.third_party_type %>
+</p>
+
+<p>
+  <strong>Third party name:</strong>
+  <%= @safety_report.third_party_name %>
+</p>
+
+<p>
+  <strong>Risk probability:</strong>
+  <%= @safety_report.risk_probability %>
+</p>
+
+<p>
+  <strong>Risk consequense:</strong>
+  <%= @safety_report.risk_consequense %>
+</p>
+
+<p>
+  <strong>Risk level:</strong>
+  <%= @safety_report.risk_level %>
+</p>
+
+<p>
+  <strong>Reported by:</strong>
+  <%= @safety_report.reported_by %>
+</p>
+
+<p>
+  <strong>Download report:</strong>
+  <%= @safety_report.download_report %>
+</p>
+
+<p>
+  <strong>Attachment:</strong>
+  <%= @safety_report.attachment %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @safety_report.user %>
+</p>
+
+<%= link_to 'Edit', edit_safety_report_path(@safety_report) %> |
+<%= link_to 'Back', safety_reports_path %>
